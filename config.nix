@@ -1,28 +1,128 @@
-{pkgs, lib, ...}:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   vim = {
     theme.enable = true;
-		theme.extraConfig = ''
-			vim.cmd.colorscheme("everforest")
-		'';
-		startPlugins = [pkgs.vimPlugins.everforest];
+    extraPlugins = with pkgs.vimPlugins; {
+      everforest = {
+        package = everforest;
+        setup = "vim.cmd('colorscheme everforest')";
+      };
+    };
+    luaConfigRC.everforest_settings = ''
+      vim.g.everforest_enable_italic = 1
+    '';
+    statusline.lualine = {
+      enable = true;
+      theme = "everforest";
+    };
 
-    treesitter.enable = true;
-		statusline.lualine = {
-			enable = true;
-			theme = "everforest";
-		};
-		telescope.enable = true;
-		autocomplete.nvim-cmp.enable = true;
+    globals.mapleader = " ";
+    options = {
+      tabstop = 2;
+      shiftwidth = 2;
+    };
 
-		languages = {
-			enableLSP = true;
-			enableTreesitter = true;
-			enableFormat = true;
+    treesitter = {
+      enable = true;
+      grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        heex
+      ];
+    };
 
-			nix.enable = true;
-			elixir.enable = true;
-		};
+    telescope = {
+      enable = true;
+      mappings = {
+        findFiles = "<leader><leader>";
+      };
+    };
+    luaConfigRC.telescope_mappings = ''
+      require('telescope').setup({
+      	defaults = {
+      		mappings = {
+      			i = {
+      				["<C-j>"] = require('telescope.actions').move_selection_next,
+      				["<C-k>"] = require('telescope.actions').move_selection_previous,
+      			},
+      			n = {
+      				["<C-j>"] = require('telescope.actions').move_selection_next,
+      				["<C-k>"] = require('telescope.actions').move_selection_previous,
+      			}
+      		}
+      	}
+      })
+    '';
+
+    autocomplete.nvim-cmp = {
+      enable = true;
+      mappings = {
+        next = "<C-j>";
+        previous = "<C-k>";
+      };
+    };
+
+    assistant.copilot = {
+      enable = true;
+    };
+
+    languages = {
+      enableLSP = true;
+      enableTreesitter = true;
+      enableFormat = true;
+
+      nix.enable = true;
+      elixir.enable = true;
+    };
+
+    keymaps = [
+      {
+        action = "<cmd>:w<CR>";
+        key = "<leader>fs";
+        mode = "n";
+        desc = "Save current buffer";
+      }
+      # Split action
+      {
+        action = "<cmd>vsplit<CR>";
+        key = "<leader>wv";
+        mode = "n";
+        desc = "Split window vertically";
+      }
+      {
+        action = "<cmd>split<CR>";
+        key = "<leader>ws";
+        mode = "n";
+        desc = "Split window horizontally";
+      }
+      {
+        action = "<cmd>vsplit<CR>";
+        key = "<leader>wd";
+        mode = "n";
+        desc = "Close current window";
+      }
+      # Split navigation
+      {
+        action = "<C-w>l";
+        key = "<leader>wl";
+        mode = "n";
+      }
+      {
+        action = "<C-w>h";
+        key = "<leader>wh";
+        mode = "n";
+      }
+      {
+        action = "<C-w>k";
+        key = "<leader>wk";
+        mode = "n";
+      }
+      {
+        action = "<C-w>j";
+        key = "<leader>wj";
+        mode = "n";
+      }
+    ];
   };
 }

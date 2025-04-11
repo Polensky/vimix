@@ -82,6 +82,7 @@
 
       nix.enable = true;
       elixir.enable = true;
+      elixir.enableFormat = false;
     };
 
     keymaps = [

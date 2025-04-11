@@ -10,6 +10,12 @@
         package = everforest;
         setup = "vim.cmd('colorscheme everforest')";
       };
+      telescope-fzf-native = {
+        package = telescope-fzf-native-nvim;
+        setup = ''
+          require('telescope').load_extension('fzf')
+        '';
+      };
     };
     luaConfigRC.everforest_settings = ''
       vim.g.everforest_enable_italic = 1
@@ -20,6 +26,7 @@
     };
 
     globals.mapleader = " ";
+    useSystemClipboard = true;
     options = {
       tabstop = 2;
       shiftwidth = 2;

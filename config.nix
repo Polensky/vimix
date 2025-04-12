@@ -31,6 +31,7 @@
       tabstop = 2;
       shiftwidth = 2;
     };
+    mini.surround.enable = true;
 
     treesitter = {
       enable = true;

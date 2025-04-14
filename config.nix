@@ -93,6 +93,12 @@
         mode = "n";
         desc = "Save current buffer";
       }
+      {
+        action = "<cmd>:b#<CR>";
+        key = "<leader>`";
+        mode = "n";
+        desc = "Open previous buffer";
+      }
       # Split action
       {
         action = "<cmd>vsplit<CR>";

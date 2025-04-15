@@ -85,8 +85,11 @@
       enableFormat = true;
 
       nix.enable = true;
-      elixir.enable = true;
-      elixir.format.enable = false;
+      elixir = {
+        enable = true;
+        format.enable = false;
+      };
+      python.enable = true;
     };
 
     keymaps = [

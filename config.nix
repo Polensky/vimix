@@ -31,7 +31,10 @@
       tabstop = 2;
       shiftwidth = 2;
     };
-    mini.surround.enable = true;
+    utility.surround = {
+      enable = true;
+      useVendoredKeybindings = false;
+    };
 
     treesitter = {
       enable = true;

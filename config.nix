@@ -25,6 +25,36 @@
       theme = "everforest";
     };
 
+    dashboard.dashboard-nvim = {
+      enable = true;
+      # Vimix
+      setupOpts = {
+      theme = "doom";
+        config = {
+          header = [
+            "__   __   __     __    __     __     __  __"
+            "/\\ \\ / /  /\\ \\   /\\ \"-./  \\   /\\ \\   /\\_\\_\\_\\"
+            "\\ \\ \\'/   \\ \\ \\  \\ \\ \\-./\\ \\  \\ \\ \\  \\/_/\\_\\/_"
+            "  \\ \\__|    \\ \\_\\  \\ \\_\\ \\ \\_\\  \\ \\_\\   /\\_\\/\\_\\"
+            "   \\/_/      \\/_/   \\/_/  \\/_/   \\/_/   \\/_/\\/_/" 
+          ];
+          vertical_center = true;
+          center = [
+            {
+              icon = "";
+              icon_hl = "group";
+              desc = "Find files";
+              desc_hl = "String";
+              key = "SPC SPC";
+              key_hl = "group";
+              key_format = "[%s]";
+              action = "";
+            }
+          ];
+        };
+      };
+    };
+
     globals.mapleader = " ";
     useSystemClipboard = true;
     options = {

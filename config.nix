@@ -29,14 +29,14 @@
       enable = true;
       # Vimix
       setupOpts = {
-      theme = "doom";
+        theme = "doom";
         config = {
           header = [
             "__   __   __     __    __     __     __  __"
             "/\\ \\ / /  /\\ \\   /\\ \"-./  \\   /\\ \\   /\\_\\_\\_\\"
             "\\ \\ \\'/   \\ \\ \\  \\ \\ \\-./\\ \\  \\ \\ \\  \\/_/\\_\\/_"
             "  \\ \\__|    \\ \\_\\  \\ \\_\\ \\ \\_\\  \\ \\_\\   /\\_\\/\\_\\"
-            "   \\/_/      \\/_/   \\/_/  \\/_/   \\/_/   \\/_/\\/_/" 
+            "   \\/_/      \\/_/   \\/_/  \\/_/   \\/_/   \\/_/\\/_/"
           ];
           vertical_center = true;
           center = [
@@ -120,6 +120,7 @@
         format.enable = false;
       };
       python.enable = true;
+      terraform.enable = true;
     };
 
     keymaps = [

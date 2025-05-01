@@ -121,7 +121,7 @@
       };
       python.enable = true;
       terraform.enable = true;
-      odin.enable = true;
+      rust.enable = true;
     };
 
     keymaps = [

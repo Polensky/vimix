@@ -122,6 +122,7 @@
       python.enable = true;
       terraform.enable = true;
       rust.enable = true;
+      go.enable = true;
     };
 
     keymaps = [
@@ -136,6 +137,12 @@
         key = "<leader>`";
         mode = "n";
         desc = "Open previous buffer";
+      }
+      {
+        action = "<cmd>:nohlsearch<CR>";
+        key = "<Esc>";
+        mode = "n";
+        desc = "Save current buffer";
       }
       # Split action
       {
